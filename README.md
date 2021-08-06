@@ -3,8 +3,8 @@ This is a bot that uses youtube data V3 api and notifies you when a video get up
 
 # Node_modules
 
-    "discord.js": "^12.5.3",
-    "dotenv": "^10.0.0",
-    "googleapis": "^83.0.0",
-    "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.12"
+    discord.js -> https://discord.js.org/#/,
+    dotenv -> https://www.npmjs.com/package/dotenv,
+    googleapis -> https://www.npmjs.com/package/googleapis,
+    node-fetch -> https://www.npmjs.com/package/node-fetch,
+    nodemon(optional) -> https://www.npmjs.com/package/nodemon
