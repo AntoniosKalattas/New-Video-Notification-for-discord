@@ -15,6 +15,7 @@ const client = new Client();
 
 
 client.on("ready", () =>{
+    console.log("bot is up");
     fetch12();
 });
 
@@ -23,7 +24,6 @@ function fetch12(){
     .then((res) => res.json())
     .then((data) => {
     search1=JSON.stringify(data, null, 2);
-    console.log(search1);
     new_vid();
     })
     .catch((err) =>{
@@ -51,11 +51,7 @@ function new_vid(){
             }
         }       
     }
-
     get_channel_name();
-
-    console.log(dates[0]);
-    console.log(last_date);
     client.on("message", (message) =>{
         if(message.content==="!start"){
             console.log("!start was activated");
@@ -78,7 +74,6 @@ function get_channel_name(){
             let e =i+16;
             while(search1[e]!='"'){
                 channel_name[0]=(channel_name || "") + (search1[e] || "");
-                console.log(channel_name[0]);
                 e++;
             }
             break;
@@ -101,7 +96,7 @@ client.on("message", (message) =>{
             message.channel.send(`https://www.youtube.com/watch?v=${video_link[0]}`);
         }
         else{
-            message.channel.send("Ο μεγαλιοτατος δεν εχει ανεβαση βιντεο!! Το τελευτεο λακταριστο βιντεο ειναι:");
+            message.channel.send(`${channel_name} has not uploade any new video. Lastest video is:`);
             message.channel.send(`https://www.youtube.com/watch?v=${video_link[0]}`);
         }
     }
