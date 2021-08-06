@@ -7,7 +7,7 @@ let channel_name= new Array(1);
 let dates = new Array(2);
 let video_link=new Array(1);
 let search1;
-const api_key="AIzaSyC1Vq50ACerpfd5P5e2DV79RminSe1XBzI";
+const api_key="";  //<- here write your google api key.
 const url= `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCxVDmCmgQMTUTWMeRZUYliw&maxResults=2&order=date&q=frutotrela&key=${api_key}`;
 const { Client } = require("discord.js");
 const { containeranalysis_v1alpha1 } = require("googleapis");
