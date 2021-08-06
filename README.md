@@ -8,3 +8,5 @@ This is a bot that uses youtube data V3 api and notifies you when a video get up
     googleapis -> https://www.npmjs.com/package/googleapis,
     node-fetch -> https://www.npmjs.com/package/node-fetch,
     nodemon(optional) -> https://www.npmjs.com/package/nodemon
+
+# So far the bot supports one channel only but in the future I will make it support miltiple channels
