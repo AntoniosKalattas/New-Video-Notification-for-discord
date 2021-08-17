@@ -12,7 +12,9 @@ if you still want to check the bot (with so bugs) this is the invite link: https
     !*sync (if you think there is a problem with the bot you can use this command so you will re-sync it).
     
     !*admin (probably this command will not be allow to be used from eveyone in the futere but for now you use it to bypass the setup procedure)
+    
     !*setup (you have to use this in order for yout bot to work. After this command you should type "api_key= " and after the space you should type you google api   key)
+    
     !*start (use it in order to start notification for every new video)
 
 # Node_modules
