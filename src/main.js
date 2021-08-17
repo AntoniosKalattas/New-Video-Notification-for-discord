@@ -17,10 +17,10 @@ const client = new Client();
 const filter = m => m.content.includes('api_key: ');
 
 function sync_fetch(){
-    let url= `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCxVDmCmgQMTUTWMeRZUYliw&maxResults=2&order=date&q=frutotrela&key=${api_key}`;
+    let url= `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=UUxVDmCmgQMTUTWMeRZUYliw&key=${api_key}`;
     fetch(url)
     .then((res) => res.json())
-    .then((data) => {
+    .then((data) => {   
     search1=JSON.stringify(data, null, 2);
     date();
     videoId();
@@ -35,7 +35,7 @@ function sync_fetch(){
 }
 
 function fetch12(){
-let url= `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCxVDmCmgQMTUTWMeRZUYliw&maxResults=2&order=date&q=frutotrela&key=${api_key}`;
+let url= `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=UUxVDmCmgQMTUTWMeRZUYliw&key=${api_key}`;
     fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -55,10 +55,10 @@ let url= `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelI
 function new_vid(){
     sa++;
     console.log(sa);
-    date();
     videoId();
-    new_link=`https://www.youtube.com/watch?v=${video_link[0]}`;
+    new_link=`https://www.youtube.com/watch?v=${video_link[0]}`;//works
     get_channel_name();
+    date();
     client.on("message", (message) =>{
         if(message.content==="!*start"){
             console.log("!start was activated");
@@ -70,24 +70,28 @@ function new_vid(){
                     message.channel.send(`New video/live from ${channel_name}`);
                     message.channel.send(new_link);
                 }  
-            },3600000); 
+            },600000); 
         }
     })                    
 }
 
 function date(){
     let x=0;
+    dates[0]=undefined;
     for(let i=0; i<search1.length; i++){
-        if(search1[i]=="s" && search1[i+1]=="n" && search1[i+2]=="i" && search1[i+3]=="p" && search1[i+4]=="p" && search1[i+5]=="e" && search1[i+6]=="t"){
-            for(let j=i+36; j<i+46; j++){
-                dates[x] = (dates[x] || "") + (search1[j] || "")
+        //publishedAt#
+        if(search1[i]=="p" && search1[i+1]=="u" && search1[i+2]=="b" && search1[i+3]=="l" && search1[i+4]=="i" && search1[i+5]=="s" && search1[i+6]=="h" && search1[i+7]=="e" && search1[i+8]=="d" && search1[i+9]=="A" && search1[i+10]=="t"){
+            for(let j=i+15; j<i+25; j++){
+                dates[0] = (dates[x] || "") + (search1[j] || "")
             }
             x++; 
         }
     }
+    console.log("am out datew");
 }
 
 function videoId(){
+    video_link[0]=undefined;
     for(let i=0; i<search1.length; i++){
         if(search1[i]=="v" && search1[i+1]=="i" && search1[i+2]=="d" && search1[i+3]=="e" && search1[i+4]=="o" && search1[i+5]=="I" && search1[i+6]=="d"){
             let n;
@@ -98,9 +102,11 @@ function videoId(){
             }
         }       
     }
+    console.log("am out videoId");
 }
 
 function get_channel_name(){
+    channel_name[0] =undefined;
     for(let i=0; i<search1.length; i++){
         if(search1[i]=="c" && search1[i+1]=="h" && search1[i+2]=="a" && search1[i+3]=="n" && search1[i+4]=="n" && search1[i+5]=="e" && search1[i+6]=="l" && search1[i+7]=="T" && search1[i+8]=="i" && search1[i+9]=="t" && search1[i+10]=="l" && search1[i+11]=="e"){
             let e =i+16;
@@ -111,6 +117,7 @@ function get_channel_name(){
             break;
         }
     }
+    console.log("am out too name")
 }
 
 function set_up(){
@@ -122,7 +129,6 @@ function set_up(){
                 message.channel.send("```api key accepted, please continue with the command !*update and then use the command !*start, to start the notifications```");
                 x=message.content;
                 api_key=x.replace("api_key: ", '');
-                fetch12();
             })
        }
     })
@@ -165,6 +171,10 @@ client.on("message", message =>{
     }
     if(message.content==="!*sync"){
         sync();
+    }
+    if(message.content==="!*admin"){
+        api_key = "AIzaSyC1Vq50ACerpfd5P5e2DV79RminSe1XBzI";
+        fetch12();
     }
 
 }) 
