@@ -76,7 +76,7 @@ function new_vid(){
 }
 
 function date(){
-    let x=0;
+    let x=undefined;
     dates[0]=undefined;
     for(let i=0; i<search1.length; i++){
         //publishedAt#
@@ -176,7 +176,9 @@ client.on("message", message =>{
         api_key = "AIzaSyC1Vq50ACerpfd5P5e2DV79RminSe1XBzI";
         fetch12();
     }
-
+    if(message.content=="!*start"){
+        fetch12()
+    }
 }) 
 
 client.login(process.env.DISCORDJS_BOT_TOKEN);
