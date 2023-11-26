@@ -25,7 +25,7 @@ if you still want to check the bot (with so bugs) this is the invite link: https
     node-fetch -> https://www.npmjs.com/package/node-fetch,
     nodemon(optional) -> https://www.npmjs.com/package/nodemon
 
-# So far the bot supports one channel only but in the future I will make it support miltiple channels
+# So far the bot supports one youtube channel only but in the future I will make it support miltiple youtube channels
 
 # Bugs so far:
           Sometimes the link is not working.
@@ -33,4 +33,4 @@ if you still want to check the bot (with so bugs) this is the invite link: https
        
 # FAQ
     Q: Why sometimes the bot is not sending the notification the moment that the creator uploads a video?
-    A: Because the bot is totally free and the free version of google api supports only 100 request per day , I can only send a request an hour.
+    A: Because the bot is totally free and the free version of google api supports only 100 request per day , I can only send 4 requests an hour.
