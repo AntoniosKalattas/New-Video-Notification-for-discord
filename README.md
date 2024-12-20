@@ -1,7 +1,3 @@
-Here is a corrected and polished version of the text:
-
----
-
 # The Bot is Still Under Development
 Please do not use it in its current state.
 
@@ -58,7 +54,3 @@ The bot currently supports notifications for **one YouTube channel only**. Futur
 ## FAQ
 **Q: Why doesn’t the bot send notifications immediately after a new video is uploaded?**  
 **A:** The bot is free and operates under the limitations of the free version of the Google API, which supports only 100 requests per day. As a result, the bot can only send a maximum of 4 requests per hour.
-
----
-
-This version fixes grammatical errors, improves formatting, and makes the text clearer and more professional.
